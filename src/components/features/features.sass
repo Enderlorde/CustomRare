@@ -1,0 +1,40 @@
+.features
+    width: 100%
+    display: flex
+    justify-content: center
+
+    &__container
+
+        width:100%
+        max-width: 1200px
+    
+    &__list
+        display: flex
+        align-items: center
+        justify-content: center
+        list-style: none
+        font-size: 14px
+
+        li
+            display: block
+            padding: 0 5%
+
+            h3:hover
+                color: #2196F3   
+
+        li:not(:last-child)
+            border-right: 1px solid red
+
+        li::after
+            content: ''
+            font-size: 0
+            position: absolute
+            display: block
+            width: 0
+            height: 3px
+            background-color: #2196F3
+            border-radius: 1px    
+            transition: width ease-in-out 0.5s   
+        
+        li:hover::after
+            width: 10%

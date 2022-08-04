@@ -42,7 +42,18 @@ module.exports = {
                 test: /\.png/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'textures/[hash][ext][query]'
+                    filename: 'images/[hash][ext][query]'
+                }
+            },
+            {
+                test: /\.svg$/i,
+                type: 'asset/inline'
+            },
+            {
+                test: /\.(ttf|otf|woff2?|eot)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext]'
                 }
             }
         ]

@@ -1,21 +1,33 @@
+const { useRef } = require('react');
 const React = require('react');
-const { Link } = require('react-router-dom');
+const { NavLink } = require('react-router-dom');
 require("./navigation.sass");
+
+const logo = require('../../static/logo.svg');
 
 const Navigation = () => {
     return (
             <nav className="navigation">
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/constructor">Constructor</Link>
-                    </li>
-                    <li>
-                        <Link to="/history">History</Link>
-                    </li>
-                </ul>
+                <div className="navigation__container">
+                    <img src={logo} className='navigation__logo' alt="" />
+
+                    <ul className='navigation__menu'>
+                        <li>
+                            <NavLink className={({ isActive }) => (isActive?'active':'inactive')} to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => (isActive?'active':'inactive')} to="/constructor">Constructor</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => (isActive?'active':'inactive')} to="/history">History</NavLink>
+                        </li>
+                    </ul>
+
+                    <div>
+                        <button className="navigation__btn navigation__btn_cart" >CART</button>
+                        <button className="navigation__burger">BURGER</button>
+                    </div>
+                </div>
             </nav>
     );
 }

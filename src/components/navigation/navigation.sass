@@ -1,8 +1,67 @@
 .navigation
-    ul
+    display: flex
+    width: 100%
+    justify-content: center
+   
+    
+    &__container
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        max-width: 1200px
+        
+
+    &__logo
+        width: 100px
+        height: 100px
+
+    &__menu
         list-style: none
         display: flex
-        gap: 10px
-        
-        li
+        gap: 50px
+
+        a
             cursor: pointer
+            color: #fff
+            text-decoration: none 
+            text-transform: capitalize
+            display: block
+            position: relative
+
+        a::after
+            content: ''
+            font-size: 0
+            position: absolute
+            display: block
+            width: 0
+            height: 3px
+            background-color: #2196F3
+            border-radius: 1px    
+            transition: width ease-in-out 0.5s        
+
+        a.active
+            color: #2196F3
+
+        a.active::after
+            width: 60%
+
+        a:hover
+            color: #2196F3
+
+        a:hover::after
+            width: 60%
+
+    &__burger
+        visibility: hidden
+
+    &__btn
+        padding: 10px 20px
+        background-color: #2196F3
+        color: #fff
+        text-transform: uppercase
+        border: 0
+        border-radius: 5px
+        cursor: pointer
+        font-size: 16px
+        font-family: 'Roboto'

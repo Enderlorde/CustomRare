@@ -1,0 +1,67 @@
+@font-face 
+    font-family: 'RobotoCondensed'
+    font-weight: bold
+    src: url('../../static/fonts/RobotoCondensed-Bold.ttf')
+    
+.diamonds
+    position: relative
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    width: 400px
+    gap: 40px
+    height: 100%
+    transform: rotate(45deg)
+    font-family: 'RobotoCondensed'
+
+
+    &__item
+        background-color: #2196F3
+        border-radius: 20px
+        display: flex
+        align-items: center
+        justify-content: center
+        overflow: hidden
+
+        div,img
+            font-size: 52px
+            transform: rotate(-45deg)
+
+    &__item_large
+        width: 200px
+        height: 200px
+
+    &__item_small
+        width: 100px
+        height: 100px
+
+    &__item_hide
+        visibility: hidden
+
+.diamonds::before
+        content: ''
+        top: 50%
+        left: -80px
+        position: absolute
+        display: block
+        width: 150px
+        height: 150px
+        transform: translateY(-50%)
+        z-index: -999
+        border-radius: 20px
+        opacity: 0.2
+        background-color: #00BCD4
+    
+
+.diamonds::after
+        content: ''
+        top: 25px
+        left: -25px
+        position: absolute
+        display: block
+        width: 350px
+        height: 350px
+        z-index: -999
+        border-radius: 20px
+        opacity: 0.2
+        background-color: #2196F3
