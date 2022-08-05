@@ -1,8 +1,45 @@
 @font-face 
     font-family: 'Roboto'
+    font-weight: medium
     src: url('./static/fonts/Roboto-Medium.ttf')
 
+@font-face 
+    font-family: 'Roboto'
+    font-weight: normal
+    src: url('./static/fonts/Roboto-Regular.ttf')
+
 .app
+    position: relative
     font-family: 'Roboto','serif'
     font-size: 18px
     color: #fff
+    padding: 0 40px
+    overflow: hidden
+
+    &::after,
+    &::before
+        content: ''
+        display: block
+        width: 800px
+        height: 800px
+        position: absolute
+        top: -350px
+        right: -350px
+        transform: rotate(45deg)
+        z-index: -999
+        border-radius: 50px
+
+
+    &::after
+        background-color: #0D47A1
+
+    &::before
+        top: -300px
+        background-color: #006064
+        box-shadow: 5px 5px 2px #222
+
+h2
+    margin-bottom: 30px
+
+h3,h4,p
+    margin-bottom: 20px

@@ -7,9 +7,10 @@ const Services = () => {
         <div className="services">
             <div className="services__header">
                 <h2>Our Services</h2>
-                <button>see all</button>
+                <a href="#">SEE ALL</a>
             </div>
 
+            <Slider />
         </div>
     )
 }

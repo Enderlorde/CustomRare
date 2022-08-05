@@ -3,6 +3,8 @@ const Promo = require('../promo/promo.jsx');
 const Features = require('../features/features.jsx');
 const About = require('../about/about.jsx');
 const Services = require('../services/services.jsx');
+const Values = require('../values/values.jsx');
+const Contact = require('../contact/contact.jsx');
 require('./landing.sass');
 
 const Landing = (props) => {
@@ -12,6 +14,8 @@ const Landing = (props) => {
             <Features />
             <About />
             <Services />
+            <Values />
+            <Contact />
         </div>
     );
 }

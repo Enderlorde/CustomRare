@@ -1,2 +1,60 @@
 .slider
-    display: none
+    display: flex
+    flex-direction: column
+    list-style: none
+
+    &__slides
+        display: flex
+        list-style: none
+        gap: 20px
+        transform: translateX(-75%)
+
+        li
+            display: flex
+            flex-direction: column
+            position: relative
+            background-color: #424242
+            padding: 40px 10px 10px 10px
+            border-radius: 10px
+            font-size: 18px
+
+            img
+                position: absolute
+                top: 0
+                left: 10%
+                width: 80%
+                transform: translateY(-50%)
+                display: block
+                border-radius: 10px
+
+            h3
+                font-weight: normal
+                margin-bottom: 20px
+
+            p
+                margin-bottom: 20px 
+
+            button
+                padding: 5px
+                border:1px solid #BBDEFB
+                border-radius: 5px
+                background-color: #303030
+                color:#BBDEFB
+                text-transform: uppercase
+                font-weight: normal
+                cursor: pointer
+        
+    &__controls
+        display: flex
+        margin-right: 15%
+        align-self: flex-end
+        gap: 10px
+
+        button
+            width: 50px
+            height: 50px
+            border-radius: 50%
+            border: 0
+            background-color: #424242
+            cursor: pointer
+

@@ -1,0 +1,43 @@
+.values
+    display: flex
+    justify-content: center
+    width: 100%
+
+    &__container
+        display: flex
+        justify-content: space-between
+        width: 100%
+        max-width: 1200px
+
+    &__item
+        width: 50%
+
+        ul
+            display: flex
+            flex-wrap: wrap
+            list-style: none
+            width: 100%
+            gap: 30px
+
+            li
+                width: calc(50% - 15px)
+                font-size: 14px
+
+                .icon
+                    width: 20px
+                    height: 20px
+                    transform: rotate(45deg)
+                    border-radius: 3px
+                    margin-bottom: 20px
+
+                    &_purple
+                        background-color: #EDE7F6
+
+                    &_blue
+                        background-color: #BBDEFB
+
+                    &_green
+                        background-color: #B2EBF2
+                    
+                    &_yellow
+                        background-color: #FBEABB

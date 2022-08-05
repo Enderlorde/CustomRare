@@ -6,6 +6,7 @@ const Landing = require('./components/landing/landing.jsx');
 const Constructor = require('./components/constructor/constructor.jsx');
 const History = require('./components/history.jsx');
 const Spinner = require('./components/spinner/spinner.jsx');
+const Footer = require('./components/footer/footer.jsx');
 
 const style = require('./app.sass');
 
@@ -43,6 +44,8 @@ ReactDOM.createRoot(
                     <Route path="history" element={<History />} />
                 </Routes>
             </BrowserRouter>
+
+            <Footer />
         </React.Suspense>
     </div>
 )
