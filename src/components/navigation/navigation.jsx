@@ -2,6 +2,7 @@ const { useRef } = require('react');
 const React = require('react');
 const { NavLink } = require('react-router-dom');
 require("./navigation.sass");
+require("./navigation-mobile.sass");
 
 const logo = require('../../static/logo.svg');
 
@@ -10,8 +11,8 @@ const Navigation = () => {
             <nav className="navigation">
                 <div className="navigation__container">
                     <img src={logo} className='navigation__logo' alt="" />
-
-                    <ul className='navigation__menu'>
+                    
+                    <ul className='navigation__menu menu'>
                         <li>
                             <NavLink className={({ isActive }) => (isActive?'active':'inactive')} to="/">Home</NavLink>
                         </li>
@@ -20,6 +21,9 @@ const Navigation = () => {
                         </li>
                         <li>
                             <NavLink className={({ isActive }) => (isActive?'active':'inactive')} to="/history">History</NavLink>
+                        </li>
+                        <li className='menu__close'>
+                            Close
                         </li>
                     </ul>
 

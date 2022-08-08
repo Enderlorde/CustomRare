@@ -1,0 +1,16 @@
+@media (max-device-width: 769px)
+    .values__container
+        flex-direction: column
+        align-items: center
+
+    .values__item
+        width: 100%
+
+        &:not(last-item)
+            margin-bottom: 40px
+            
+@media (max-device-width: 426px)
+    .values__item
+        ul
+            li
+                width: calc(100% - 15px)

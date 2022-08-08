@@ -1,13 +1,14 @@
 const React = require('react');
 
 require('./values.sass');
+require('./values-mobile.sass');
 
 const Values = () => {
     return (
         <div className="values">
             <div className="values__container">
                 <div className="values__item">
-                    
+                    <img src="https://via.placeholder.com/500" alt="placeholder"/>
                 </div>
 
                 <div className="values__item">

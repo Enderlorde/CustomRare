@@ -1,5 +1,6 @@
 const React = require('react');
 require('./slider.sass');
+require('./slider-mobile.sass');
 
 const Slider = () => {
     return(
@@ -11,7 +12,7 @@ const Slider = () => {
                     <p>Lorem ipsum dolor sit amet consectetur.</p>
                     <button>see detail</button>
                 </li>
-                <li>
+                {/*<li>
                     <img src="https://via.placeholder.com/100x50" alt=""/>
                     <h3>Lorem, ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur.</p>
@@ -52,7 +53,7 @@ const Slider = () => {
                     <h3>Lorem, ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur.</p>
                     <button>see detail</button>
-                </li>
+                </li> */}
             </ul>
 
             <div className="slider__controls">

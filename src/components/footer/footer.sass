@@ -10,17 +10,14 @@
         position: relative
         display: flex
         justify-content: space-between
-        width: 100%
-        max-width: 1200px
+        width: calc(100% - 80px)
+        max-width: calc(1200px - 80px)
 
     &__item
         display: flex
         flex-direction: column
         gap: 10px
         width: 20%
-
-        &_centered
-            align-items: center
 
         .logo
             height: 80px
@@ -29,8 +26,8 @@
 
         .socials
             display: flex
-            gap: 20px
             justify-content: space-between
+            list-style: none
 
             li
                 width: 30px
@@ -38,15 +35,6 @@
                 background-color: rgba(0, 0, 0, 0.1)
                 border-radius: 50%
                 cursor: pointer
-
-    ul
-        list-style: none
-
-        li:first-child
-            font-size: 18px
-            font-weight: bold
-            color: #BBDEFB
-            text-transform: uppercase
 
     select
         padding: 5px

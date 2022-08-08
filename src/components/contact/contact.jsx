@@ -1,5 +1,6 @@
 const React = require('react');
 require('./contact.sass')
+require('./contact-mobile.sass')
 
 const Contact = () => {
     return (

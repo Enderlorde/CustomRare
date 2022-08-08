@@ -1,6 +1,7 @@
 const React = require('react');
 const Diamonds = require('../diamonds/diamonds.jsx');
 require('./about.sass');
+require('./about-mobile.sass');
 
 const About = () => {
     return(

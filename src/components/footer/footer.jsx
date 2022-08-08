@@ -1,5 +1,6 @@
 const React = require('react');
 require('./footer.sass');
+require('./footer-mobile.sass');
 
 const logoImage = require('../../static/logo.svg');
 
@@ -17,29 +18,6 @@ const Footer = () => {
 
                     <p>(C) Skyrevv theme 2020</p>
                 </div>
-
-                <ul className="footer__item">
-                    <li>Company</li>
-                    <li>Aliquid, eaque.</li>
-                    <li>Ut, vel!</li>
-                    <li>Tempora, illum.</li>
-                    <li>Quisquam, deleniti.</li>
-                </ul>
-
-                <ul className="footer__item">
-                    <li>Services</li>
-                    <li>Aliquid, eaque.</li>
-                    <li>Ut, vel!</li>
-                    <li>Tempora, illum.</li>
-                    <li>Quisquam, deleniti.</li>
-                </ul>
-
-                <ul className="footer__item">
-                    <li>Resources</li>
-                    <li>Aliquid, eaque.</li>
-                    <li>Ut, vel!</li>
-                    <li>Tempora, illum.</li>
-                </ul>
 
                 <div className="footer__item">
                     <ul className='socials'>

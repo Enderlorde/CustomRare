@@ -1,5 +1,6 @@
 const React = require('react');
 require('./diamonds.sass');
+require('./diamonds-mobile.sass');
 const interiorImage = require('../../static/interior.png');
 const exteriorImage = require('../../static/exterior.png');
 
