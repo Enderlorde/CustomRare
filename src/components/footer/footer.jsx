@@ -1,4 +1,8 @@
 const React = require('react');
+const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
+const { faInstagram, faFacebook, faYoutube, faPinterest } = require('@fortawesome/free-brands-svg-icons');
+
+
 require('./footer.sass');
 require('./footer-mobile.sass');
 
@@ -21,10 +25,10 @@ const Footer = () => {
 
                 <div className="footer__item">
                     <ul className='socials'>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li><FontAwesomeIcon icon={faInstagram} /></li>
+                        <li><FontAwesomeIcon icon={faFacebook} /></li>
+                        <li><FontAwesomeIcon icon={faYoutube} /></li>
+                        <li><FontAwesomeIcon icon={faPinterest} /></li>
                     </ul>
 
                     <select name="lang" id="">

@@ -1,4 +1,7 @@
 const React = require('react');
+const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
+const { faArrowLeft, faArrowRight } = require('@fortawesome/free-solid-svg-icons')
+
 require('./slider.sass');
 require('./slider-mobile.sass');
 
@@ -57,8 +60,8 @@ const Slider = () => {
             </ul>
 
             <div className="slider__controls">
-                <button>prev</button>
-                <button>next</button>
+                <button><FontAwesomeIcon icon={faArrowLeft} color='#fff'/></button>
+                <button><FontAwesomeIcon icon={faArrowRight} color='#fff'/></button>
             </div>
         </div>
     );
