@@ -10,7 +10,7 @@ require('./landing.sass');
 const Landing = (props) => {
     return (
         <div className="landing">
-            <Promo color={props.color}/>
+            <Promo palette={props.palette}/>
             <Features />
             <About />
             <Services />

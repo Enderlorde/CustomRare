@@ -21,14 +21,23 @@ const generateRandomColor = () =>{
     g = getRandomNumber(255);
     b = getRandomNumber(255);
 
-    return {
-        r: r,
-        g: g,
-        b: b
-    }
+    return [r, g, b];
 }
 
-const generateRandomPalette = () => {}
+const getRandomBoolean = () => {
+    return Math.random()>0.5?true:false
+}
+
+const generateRandomPalette = () => {
+    const [bodyR, bodyG, bodyB] = generateRandomColor();
+
+    return {
+        bodyR: bodyR,
+        bodyG: bodyG,
+        bodyB: bodyB,
+        transparent: getRandomBoolean()
+    }
+}
 
 ReactDOM.createRoot(
     document.querySelector('#root')
@@ -39,9 +48,12 @@ ReactDOM.createRoot(
                 <Navigation />
             
                 <Routes>
-                    <Route path="/" element={<Landing color={generateRandomColor()}/>} />
-                    <Route path="constructor" element={<Constructor />} />
+                    <Route path="/" element={<Landing palette={generateRandomPalette()}/>} />
+                    <Route path="constructor" element={<Constructor />} >
+                        <Route path=':palette' element={<Constructor />} />
+                    </Route>
                     <Route path="history" element={<History />} />
+
                 </Routes>
             </BrowserRouter>
 

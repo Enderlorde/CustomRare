@@ -1,4 +1,5 @@
 const React = require('react');
+const { Link } = require('react-router-dom');
 const { Canvas } = require('@react-three/fiber');
 const { Html } = require('@react-three/drei');
 const Model = require('../gameboy.jsx');
@@ -7,6 +8,7 @@ require ('./promo-mobile.sass');
 const Spinner = require('../spinner/spinner.jsx');
 
 function Promo(props) {
+
     return (
         <div className="promo">
             <div className="promo__container">
@@ -15,14 +17,14 @@ function Promo(props) {
 
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum illum, delectus mollitia sit ea dolor consequuntur quasi cupiditate ad ut.</p>
 
-                    <button>Use this design</button>
+                    <button><Link to={`/constructor/${new URLSearchParams(props.palette).toString()}`} >Use this design</Link></button>
                 </div>
                 
                 <div className="promo__item promo__item_canvas">
                     <Canvas camera={{position: [5, 0, 5], near: 2, far: 15, rotation:[0, 0.6, 0],  fov: 48}}>
                             <pointLight position={[-5, 5, 5 ]} castShadow={true} />
                             <React.Suspense fallback={<Html><Spinner /></Html>}>
-                                <Model color={`rgb(${props.color.r},${props.color.g},${props.color.b})`}/>
+                                <Model palette={props.palette}/>
                             </React.Suspense>
                     </Canvas>
                 </div>
