@@ -8,19 +8,19 @@ function Gameboy(props) {
 
   console.log(materials);
 
-  if(props.palette.transparent === true){
+  if(props.palette.transparent){
     materials.Base.opacity = 0.8;
-    
-    console.log('transparent enabled');
   }else{
     materials.Base.opacity = 1;
-
-    console.log('transparent disabled');
   }
   materials.Base.transparent = true;
   materials.logo.transparent = true;
   materials.logo.opacity = 0.95;
   materials.Base.color = new THREE.Color(`rgb(${props.palette.bodyR},${props.palette.bodyG},${props.palette.bodyB})`);
+  materials.button.color = new THREE.Color(`rgb(${props.palette.buttonR},${props.palette.buttonG},${props.palette.buttonB})`);
+  materials.dpad.color = new THREE.Color(`rgb(${props.palette.dPadR},${props.palette.dPadG},${props.palette.dPadB})`);
+  materials.dpadBase.color = new THREE.Color(`rgb(${props.palette.dPadR},${props.palette.dPadG},${props.palette.dPadB})`);
+  materials.rubberButton.color = new THREE.Color(`rgb(${props.palette.rubberR},${props.palette.rubberG},${props.palette.rubberB})`);
   //nodes.shell_front.visible = false;
   //nodes.lcdpcb.renderOrder = 1;
 

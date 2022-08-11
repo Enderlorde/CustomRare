@@ -17,7 +17,7 @@ function Promo(props) {
 
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum illum, delectus mollitia sit ea dolor consequuntur quasi cupiditate ad ut.</p>
 
-                    <button><Link to={`/constructor/${new URLSearchParams(props.palette).toString()}`} >Use this design</Link></button>
+                    <button><Link to={`/constructor?${new URLSearchParams(props.palette).toString()}`} >Use this design</Link></button>
                 </div>
                 
                 <div className="promo__item promo__item_canvas">

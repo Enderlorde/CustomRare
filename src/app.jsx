@@ -30,11 +30,23 @@ const getRandomBoolean = () => {
 
 const generateRandomPalette = () => {
     const [bodyR, bodyG, bodyB] = generateRandomColor();
+    const [buttonR, buttonG, buttonB] = generateRandomColor();
+    const [dPadR, dPadG, dPadB] = generateRandomColor();
+    const [rubberR, rubberG, rubberB] = generateRandomColor();
 
     return {
         bodyR: bodyR,
         bodyG: bodyG,
         bodyB: bodyB,
+        buttonR: buttonR,
+        buttonG: buttonG,
+        buttonB: buttonB,
+        dPadR: dPadR,
+        dPadG: dPadG,
+        dPadB: dPadB,
+        rubberR: rubberR,
+        rubberG: rubberG,
+        rubberB: rubberB,
         transparent: getRandomBoolean()
     }
 }
