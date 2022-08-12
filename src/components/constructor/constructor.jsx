@@ -8,10 +8,21 @@ const Spinner = require('../spinner/spinner.jsx');
 require('./constructor.sass');
 
 function Constructor() {
+    const [themeState, setThemeState] = React.useState();
+    const [favThemesState, setFavThemesState] = React.useState([]);
+
+    React.useEffect(() => {
+        const favThemesString = window.localStorage.getItem('favThemes');
+        if (!favThemesString) return;
+        if (favThemesState.length == 0){
+            setFavThemesState(JSON.parse(favThemesString));   
+        }  
+    });
+
     let params = useParams();
     const [paletteState, setPaletteState] = useSearchParams(params.palette);
     let searchParams = new URLSearchParams(paletteState);
-    let palette = {
+    let [palette,setPalette] = React.useState({
         bodyR: searchParams.get('bodyR'),
         bodyG: searchParams.get('bodyG'),
         bodyB: searchParams.get('bodyB'),
@@ -25,13 +36,25 @@ function Constructor() {
         rubberG: searchParams.get('rubberG'),
         rubberB: searchParams.get('rubberB'),
         transparent: Boolean(searchParams.get('transparent') === 'true')
-    }
+    });
 
     const hexToRGB = (hex) => {
         const regexp = new RegExp ('#([\\w]{2})([\\w]{2})([\\w]{2})');
         let [, r, g, b] = hex.match(regexp);
         return [r, g, b].map(hex => parseInt(`0x${hex}`.toUpperCase(), 16)
         ) 
+    }
+
+    const saveToLocalStorage = () => {
+        palette.name = themeState;
+        console.log(palette);
+        const favThemesTemp = [...favThemesState, palette]
+        setFavThemesState(favThemesTemp);
+        window.localStorage.setItem('favThemes', JSON.stringify(favThemesTemp));
+    }
+
+    const useTheme = (theme) => {
+        setPalette({...palette,...theme});
     }
 
     const RGBToHex = (RGB) => {
@@ -67,8 +90,17 @@ function Constructor() {
 
                 <input type="checkbox" defaultChecked={palette.transparent} onChange={(e) => changeTransparency(e.target.checked)}/>
 
+                <input type="text" value={themeState} onChange={(e) => setThemeState(e.target.value)}/>
+
+                <button onClick={() => saveToLocalStorage()}>SAVE</button>
+
+                <ul>
+                    {favThemesState.map((theme) => {return <li key={theme.name}><button onClick={() => useTheme(theme)}>{theme.name}</button></li>})}
+                </ul>
+
                 <Canvas camera={{position: [5, 0, 5], near: 2, far: 20, rotation:[0, 0.6, 0],  fov: 48}}>
                         <pointLight position={[-5, 5, 5 ]} castShadow={true} />
+
                         <React.Suspense fallback={<Html><Spinner /></Html>}>
                             <Model palette={palette}/>
 

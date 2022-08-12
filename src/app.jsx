@@ -61,11 +61,12 @@ ReactDOM.createRoot(
             
                 <Routes>
                     <Route path="/" element={<Landing palette={generateRandomPalette()}/>} />
+                    
                     <Route path="constructor" element={<Constructor />} >
                         <Route path=':palette' element={<Constructor />} />
                     </Route>
-                    <Route path="history" element={<History />} />
 
+                    <Route path="history" element={<History />} />
                 </Routes>
             </BrowserRouter>
 
