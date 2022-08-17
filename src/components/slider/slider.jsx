@@ -6,21 +6,22 @@ require('./slider.sass');
 require('./slider-mobile.sass');
 
 const Slider = () => {
+    const slides = React.useRef();
+    let position = 0;
+
+    const moveRight = () => {
+        position += 30;
+        slides.current.style.transform = `translateX(${position}%)`;
+    }
+
+    const moveLeft = () => {
+        position -= 30;
+        slides.current.style.transform = `translateX(${position}%)`;
+    }
+
     return(
         <div className="slider">
-            <ul className="slider__slides">
-                <li>
-                    <img src="https://via.placeholder.com/100x50" alt=""/>
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <button>see detail</button>
-                </li>
-                {/*<li>
-                    <img src="https://via.placeholder.com/100x50" alt=""/>
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <button>see detail</button>
-                </li>
+            <ul className="slider__slides" ref={slides}>
                 <li>
                     <img src="https://via.placeholder.com/100x50" alt=""/>
                     <h3>Lorem, ipsum dolor.</h3>
@@ -51,17 +52,11 @@ const Slider = () => {
                     <p>Lorem ipsum dolor sit amet consectetur.</p>
                     <button>see detail</button>
                 </li>
-                <li>
-                    <img src="https://via.placeholder.com/100x50" alt=""/>
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <button>see detail</button>
-                </li> */}
             </ul>
 
             <div className="slider__controls">
-                <button><FontAwesomeIcon icon={faArrowLeft} color='#fff'/></button>
-                <button><FontAwesomeIcon icon={faArrowRight} color='#fff'/></button>
+                <button onClick={() => moveLeft()} ><FontAwesomeIcon icon={faArrowLeft} color='#fff'/></button>
+                <button onClick={() => moveRight()} ><FontAwesomeIcon icon={faArrowRight} color='#fff'/></button>
             </div>
         </div>
     );

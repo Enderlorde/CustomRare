@@ -7,6 +7,7 @@ const Constructor = require('./components/constructor/constructor.jsx');
 const History = require('./components/history.jsx');
 const Spinner = require('./components/spinner/spinner.jsx');
 const Footer = require('./components/footer/footer.jsx');
+const Cart = require('./components/cart/cart.jsx');
 
 const style = require('./app.sass');
 
@@ -67,6 +68,8 @@ ReactDOM.createRoot(
                     </Route>
 
                     <Route path="history" element={<History />} />
+                    
+                    <Route path="cart" element={<Cart />} />
                 </Routes>
             </BrowserRouter>
 

@@ -48,7 +48,8 @@ function Constructor() {
     const saveToLocalStorage = () => {
         palette.name = themeState;
         console.log(palette);
-        const favThemesTemp = [...favThemesState, palette]
+        const favThemesTemp = [...favThemesState, palette];
+        console.log(favThemesState);
         setFavThemesState(favThemesTemp);
         window.localStorage.setItem('favThemes', JSON.stringify(favThemesTemp));
     }
@@ -80,21 +81,45 @@ function Constructor() {
     return (
         <div className='constructor'>
             <div className="constructor__container">
-                <input type="color" defaultValue={RGBToHex([palette.bodyR, palette.bodyG, palette.bodyB])} onChange={(e) => changePalette('body',hexToRGB(e.target.value))}/>
+                <div className="constructor__controls controls">
+                    <div className="controls__item">
+                        <h3>Shell config</h3>
 
-                <input type="color" defaultValue={RGBToHex([palette.buttonR, palette.buttonG, palette.buttonB])} onChange={(e) => changePalette('button',hexToRGB(e.target.value))}/>
+                        <input type="color" defaultValue={RGBToHex([palette.bodyR, palette.bodyG, palette.bodyB])} onChange={(e) => changePalette('body',hexToRGB(e.target.value))}/>
 
-                <input type="color" defaultValue={RGBToHex([palette.dPadR, palette.dPadR, palette.dPadR])} onChange={(e) => changePalette('dPad',hexToRGB(e.target.value))}/>
+                        <input type="checkbox" defaultChecked={palette.transparent} onChange={(e) => changeTransparency(e.target.checked)}/>
+                    </div>
+                    
+                    <div className="controls__item">
+                        <h3>Buttons config</h3>
 
-                <input type="color" defaultValue={RGBToHex([palette.rubberR, palette.rubberR, palette.rubberR])} onChange={(e) => changePalette('rubber',hexToRGB(e.target.value))}/>
+                        <input type="color" defaultValue={RGBToHex([palette.buttonR, palette.buttonG, palette.buttonB])} onChange={(e) => changePalette('button',hexToRGB(e.target.value))}/>
+                    </div>
 
-                <input type="checkbox" defaultChecked={palette.transparent} onChange={(e) => changeTransparency(e.target.checked)}/>
+                    <div className="controls__item">
+                        <h3>D-pad config</h3>
 
-                <input type="text" value={themeState} onChange={(e) => setThemeState(e.target.value)}/>
+                        <input type="color" defaultValue={RGBToHex([palette.dPadR, palette.dPadR, palette.dPadR])} onChange={(e) => changePalette('dPad',hexToRGB(e.target.value))}/>
+                    </div>
 
-                <button onClick={() => saveToLocalStorage()}>SAVE</button>
+                    <div className="controls__item">
+                        <h3>Rubber buttons config</h3>
 
-                <ul>
+                        <input type="color" defaultValue={RGBToHex([palette.rubberR, palette.rubberR, palette.rubberR])} onChange={(e) => changePalette('rubber',hexToRGB(e.target.value))}/>
+                    </div>
+                    
+                    <div className="controls__item">
+                        
+                    </div>
+                    
+                    <div className="controls__item">
+                        <input type="text" onChange={(e) => setThemeState(e.target.value)}/>
+
+                        <button onClick={() => saveToLocalStorage()}>SAVE</button>
+                    </div>                     
+                </div>
+                
+                <ul className='constructor__favorites'>
                     {favThemesState.map((theme) => {return <li key={theme.name}><button onClick={() => useTheme(theme)}>{theme.name}</button></li>})}
                 </ul>
 

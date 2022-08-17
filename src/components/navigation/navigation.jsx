@@ -1,5 +1,5 @@
 const React = require('react');
-const { NavLink } = require('react-router-dom');
+const { NavLink, useNavigate } = require('react-router-dom');
 
 require("./navigation.sass");
 require("./navigation-mobile.sass");
@@ -18,6 +18,11 @@ const Navigation = () => {
 
     const hideMenu = () => {
         menuElement.current.classList.remove('active');
+    }
+
+    let navigate = useNavigate();
+    const routeChange = (path) =>{ 
+      navigate(path);
     }
 
     return (
@@ -41,7 +46,7 @@ const Navigation = () => {
                     </ul>
 
                     <div>
-                        <button className="navigation__btn navigation__btn_cart" >CART</button>
+                        <button className="navigation__btn navigation__btn_cart" onClick={() => routeChange('/cart')}>CART</button>
                         <button className="navigation__burger" onClick={() => showMenu()} ><FontAwesomeIcon icon={faBars} /></button>
                     </div>
                 </div>
