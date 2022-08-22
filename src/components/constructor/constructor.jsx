@@ -54,6 +54,42 @@ function Constructor() {
         window.localStorage.setItem('favThemes', JSON.stringify(favThemesTemp));
     }
 
+    const removeFromLocalStorage = (name) => {
+        const favThemesTemp = [...favThemesState.filter((theme) => theme.name != name)];
+        console.log(favThemesState);
+        setFavThemesState(favThemesTemp);
+        window.localStorage.setItem('favThemes', JSON.stringify(favThemesTemp));
+    }
+
+    const saveToCookies = () => {
+        let cookies = [];
+        if (document.cookie.length>0){
+            cookies = document.cookie.split(';');
+        }
+    
+        if(cookies.length == 0 || !cookies) {
+            
+            document.cookie = `cart=${JSON.stringify([{...palette}])};`;
+        }else{
+            let cart
+            let cartCookie = cookies.find(cookie => {
+                const isCartCookie = /^cart=.*/;
+                return isCartCookie.test(cookie)
+            });
+
+            const productsInCookie =  /^cart=(.*)$/
+            if (cartCookie){
+                cart = JSON.parse(cartCookie.match(productsInCookie)[1]);
+            }
+            
+            if(cart){
+                cart.push(palette);
+            }
+            console.log(`cart=${JSON.stringify(cart)}`);
+            document.cookie = `cart=${JSON.stringify(cart)}`;
+        }
+    }
+
     const useTheme = (theme) => {
         setPalette({...palette,...theme});
     }
@@ -116,11 +152,15 @@ function Constructor() {
                         <input type="text" onChange={(e) => setThemeState(e.target.value)}/>
 
                         <button onClick={() => saveToLocalStorage()}>SAVE</button>
-                    </div>                     
+                    </div>   
+
+                    <div className="controls__item">
+                        <button onClick={() => saveToCookies()}>Cart</button>
+                    </div>            
                 </div>
                 
                 <ul className='constructor__favorites'>
-                    {favThemesState.map((theme) => {return <li key={theme.name}><button onClick={() => useTheme(theme)}>{theme.name}</button></li>})}
+                    {favThemesState.map((theme) => {return <li key={theme.name}><button onClick={() => useTheme(theme)}>{theme.name}</button><button onClick={() => removeFromLocalStorage(theme.name)}>X</button></li>})}
                 </ul>
 
                 <Canvas camera={{position: [5, 0, 5], near: 2, far: 20, rotation:[0, 0.6, 0],  fov: 48}}>

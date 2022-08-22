@@ -69,7 +69,9 @@ ReactDOM.createRoot(
 
                     <Route path="history" element={<History />} />
                     
-                    <Route path="cart" element={<Cart />} />
+                    <Route path="cart" element={<Cart products={[]}/>} >
+                        <Route path=':palette' element={<Cart products={[]}/>} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
 
