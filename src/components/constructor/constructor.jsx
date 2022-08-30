@@ -2,10 +2,13 @@ const React = require ('react');
 const { useParams, useSearchParams } = require('react-router-dom');
 const { Canvas } = require('@react-three/fiber');
 const { OrbitControls, Html, Float } = require('@react-three/drei');
+const { v4 } = require('uuid');
 const Model = require('../gameboy.jsx');
 const Spinner = require('../spinner/spinner.jsx');
 
 require('./constructor.sass');
+require('./constructor-mobile.sass');
+
 
 function Constructor() {
     const [themeState, setThemeState] = React.useState();
@@ -68,8 +71,8 @@ function Constructor() {
         }
     
         if(cookies.length == 0 || !cookies) {
-            
-            document.cookie = `cart=${JSON.stringify([{...palette}])};`;
+            //change the UUID to something simpler later
+            document.cookie = `cart=${JSON.stringify([{...palette,...{id:v4()}}])};`;
         }else{
             let cart
             let cartCookie = cookies.find(cookie => {
@@ -83,9 +86,12 @@ function Constructor() {
             }
             
             if(cart){
-                cart.push(palette);
+                //change the UUID to something simpler later
+                cart.push({...palette,...{id:v4()}});
             }
+
             console.log(`cart=${JSON.stringify(cart)}`);
+            
             document.cookie = `cart=${JSON.stringify(cart)}`;
         }
     }
@@ -96,7 +102,9 @@ function Constructor() {
 
     const RGBToHex = (RGB) => {
         let [r, g, b] = RGB;
+        console.log([r,g,b]);
         return '#'+ [r, g, b].map(color => {
+            if (color == null) color = 255;
             let hex = Number(color).toString(16);
             return hex.length == 1? '0'+hex:hex
         }).join('');
@@ -121,27 +129,27 @@ function Constructor() {
                     <div className="controls__item">
                         <h3>Shell config</h3>
 
-                        <input type="color" defaultValue={RGBToHex([palette.bodyR, palette.bodyG, palette.bodyB])} onChange={(e) => changePalette('body',hexToRGB(e.target.value))}/>
-
-                        <input type="checkbox" defaultChecked={palette.transparent} onChange={(e) => changeTransparency(e.target.checked)}/>
+                        <label>Color:<input type="color" value={RGBToHex([palette.bodyR, palette.bodyG, palette.bodyB])} onChange={(e) => changePalette('body',hexToRGB(e.target.value))}/></label>
+                        <br/>   
+                        <label>Transparent:<input type="checkbox" defaultChecked={palette.transparent} onChange={(e) => changeTransparency(e.target.checked)}/></label>
                     </div>
                     
                     <div className="controls__item">
                         <h3>Buttons config</h3>
 
-                        <input type="color" defaultValue={RGBToHex([palette.buttonR, palette.buttonG, palette.buttonB])} onChange={(e) => changePalette('button',hexToRGB(e.target.value))}/>
+                        <label>Color:<input type="color" value={RGBToHex([palette.buttonR, palette.buttonG, palette.buttonB])} onChange={(e) => changePalette('button',hexToRGB(e.target.value))}/></label>
                     </div>
 
                     <div className="controls__item">
                         <h3>D-pad config</h3>
 
-                        <input type="color" defaultValue={RGBToHex([palette.dPadR, palette.dPadR, palette.dPadR])} onChange={(e) => changePalette('dPad',hexToRGB(e.target.value))}/>
+                        <label>Color:<input type="color" value={RGBToHex([palette.dPadR, palette.dPadR, palette.dPadR])} onChange={(e) => changePalette('dPad',hexToRGB(e.target.value))}/></label>
                     </div>
 
                     <div className="controls__item">
                         <h3>Rubber buttons config</h3>
 
-                        <input type="color" defaultValue={RGBToHex([palette.rubberR, palette.rubberR, palette.rubberR])} onChange={(e) => changePalette('rubber',hexToRGB(e.target.value))}/>
+                        <label>Color:<input type="color" value={RGBToHex([palette.rubberR, palette.rubberR, palette.rubberR])} onChange={(e) => changePalette('rubber',hexToRGB(e.target.value))}/></label>
                     </div>
                     
                     <div className="controls__item">
@@ -158,12 +166,8 @@ function Constructor() {
                         <button onClick={() => saveToCookies()}>Cart</button>
                     </div>            
                 </div>
-                
-                <ul className='constructor__favorites'>
-                    {favThemesState.map((theme) => {return <li key={theme.name}><button onClick={() => useTheme(theme)}>{theme.name}</button><button onClick={() => removeFromLocalStorage(theme.name)}>X</button></li>})}
-                </ul>
 
-                <Canvas camera={{position: [5, 0, 5], near: 2, far: 20, rotation:[0, 0.6, 0],  fov: 48}}>
+                <Canvas style={{height: '400px', width: '400px'}} camera={{position: [5, 0, 5], near: 2, far: 20, rotation:[0, 0.6, 0],  fov: 48}}>
                         <pointLight position={[-5, 5, 5 ]} castShadow={true} />
 
                         <React.Suspense fallback={<Html><Spinner /></Html>}>
@@ -172,6 +176,10 @@ function Constructor() {
                             <OrbitControls />
                         </React.Suspense>
                 </Canvas>
+
+                <ul className='constructor__favorites'>
+                    {favThemesState.map((theme) => {return <li key={theme.name}><button onClick={() => useTheme(theme)}>{theme.name}</button><button onClick={() => removeFromLocalStorage(theme.name)}>X</button></li>})}
+                </ul>
             </div>
         </div>
         

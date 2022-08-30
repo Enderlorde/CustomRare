@@ -21,7 +21,7 @@ function Promo(props) {
                 </div>
                 
                 <div className="promo__item promo__item_canvas">
-                    <Canvas camera={{position: [5, 0, 5], near: 2, far: 15, rotation:[0, 0.6, 0],  fov: 48}}>
+                    <Canvas camera={{position: [5, 0, 5], near: 2, far: 15, rotation:[0, 0.8, 0],  fov: 48}}>
                             <pointLight position={[-5, 5, 5 ]} castShadow={true} />
                             <React.Suspense fallback={<Html><Spinner /></Html>}>
                                 <Model palette={props.palette}/>

@@ -10,13 +10,13 @@ const Slider = () => {
     let position = 0;
 
     const moveRight = () => {
-        position += 30;
-        slides.current.style.transform = `translateX(${position}%)`;
+        position += 340;
+        slides.current.style.transform = `translateX(${position}px)`;
     }
 
     const moveLeft = () => {
-        position -= 30;
-        slides.current.style.transform = `translateX(${position}%)`;
+        position -= 340;
+        slides.current.style.transform = `translateX(${position}px)`;
     }
 
     return(

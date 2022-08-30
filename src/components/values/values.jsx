@@ -8,10 +8,6 @@ const Values = () => {
         <div className="values">
             <div className="values__container">
                 <div className="values__item">
-                    <img src="https://via.placeholder.com/500" alt="placeholder"/>
-                </div>
-
-                <div className="values__item">
                     <h3>Lorem ipsum dolor sit.</h3>
 
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rem vel nulla in quaerat modi possimus eligendi inventore? Dignissimos accusamus officia minima corrupti consequatur reiciendis quam explicabo neque quod aliquid?</p>
