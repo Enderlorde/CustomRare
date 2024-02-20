@@ -1,7 +1,10 @@
-const React = require('react');
+/* const React = require('react');
 const Diamonds = require('../diamonds/diamonds.jsx');
 require('./about.sass');
-require('./about-mobile.sass');
+require('./about-mobile.sass'); */
+import React from 'react';
+import Diamonds from '../diamonds/diamonds';
+import './about.sass';
 
 const About = () => {
     return(
@@ -38,4 +41,4 @@ const About = () => {
     )
 }
 
-module.exports = About;
+export default About;

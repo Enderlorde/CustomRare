@@ -1,7 +1,13 @@
-const React = require('react');
+/* const React = require('react');
 const { useGLTF } = require('@react-three/drei');
 const gltf = require('../static/gameboy.glb');
 const THREE = require('three');
+ */
+
+import React from 'react';
+import { useGLTF } from '@react-three/drei';
+import gltf from "../static/gameboy.glb";
+import * as THREE from 'three';
 
 function Gameboy(props) {
   const { nodes, materials } = useGLTF(gltf)
@@ -59,6 +65,6 @@ function Gameboy(props) {
   )
 }
 
-module.exports = Gameboy;
+export default Gameboy;
 
 useGLTF.preload(gltf)

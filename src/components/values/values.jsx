@@ -1,7 +1,10 @@
-const React = require('react');
+/* const React = require('react');
 
 require('./values.sass');
 require('./values-mobile.sass');
+ */
+import React from 'react';
+import './values.sass';
 
 const Values = () => {
     return (
@@ -51,4 +54,4 @@ const Values = () => {
     );
 }
 
-module.exports = Values;
+export default Values;

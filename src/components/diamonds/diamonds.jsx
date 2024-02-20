@@ -1,8 +1,12 @@
-const React = require('react');
+/* const React = require('react');
 require('./diamonds.sass');
 require('./diamonds-mobile.sass');
 const interiorImage = require('../../static/interior.png');
-const exteriorImage = require('../../static/exterior.png');
+const exteriorImage = require('../../static/exterior.png'); */
+import React from 'react';
+import interiorImage from '../../static/interior.png';
+import exteriorImage from '../../static/exterior.png';
+import './diamonds.sass';
 
 const Diamonds = () => {
     return(
@@ -22,4 +26,4 @@ const Diamonds = () => {
     );
 }
 
-module.exports = Diamonds;
+export default Diamonds;

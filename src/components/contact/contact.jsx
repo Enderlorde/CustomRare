@@ -1,6 +1,9 @@
-const React = require('react');
+/* const React = require('react');
 require('./contact.sass')
 require('./contact-mobile.sass')
+ */
+import React from 'react';
+import './contact.sass';
 
 const Contact = () => {
     return (
@@ -20,4 +23,4 @@ const Contact = () => {
     );
 }
 
-module.exports = Contact;
+export default Contact;

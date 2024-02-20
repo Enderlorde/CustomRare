@@ -1,15 +1,16 @@
-const React = require('react');
-const ReactDOM = require('react-dom/client');
-const  { BrowserRouter, Routes, Route} = require('react-router-dom');
-const Navigation = require('./components/navigation/navigation.jsx');
-const Landing = require('./components/landing/landing.jsx');
-const Constructor = require('./components/constructor/constructor.jsx');
-const History = require('./components/history.jsx');
-const Spinner = require('./components/spinner/spinner.jsx');
-const Footer = require('./components/footer/footer.jsx');
-const Cart = require('./components/cart/cart.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navigation from './components/navigation/navigation.jsx';
+import Landing from './components/landing/landing.jsx';
+import Constructor from './components/constructor/constructor.jsx';
+import History from './components/history.jsx';
+import Spinner from './components/spinner/spinner.jsx';
+import Footer from './components/footer/footer.jsx';
+import Cart from './components/cart/cart.jsx';
+import './app.sass';
 
-const style = require('./app.sass');
+//const style = require('./app.sass');
 
 const generateRandomColor = () =>{
     const getRandomNumber = (max) => {

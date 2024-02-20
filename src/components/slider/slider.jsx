@@ -1,9 +1,13 @@
-const React = require('react');
+/* const React = require('react');
 const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
 const { faArrowLeft, faArrowRight } = require('@fortawesome/free-solid-svg-icons')
 
 require('./slider.sass');
-require('./slider-mobile.sass');
+require('./slider-mobile.sass'); */
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import './slider.sass';
 
 const Slider = () => {
     const slides = React.useRef();
@@ -62,4 +66,4 @@ const Slider = () => {
     );
 }
 
-module.exports = Slider;
+export default Slider;

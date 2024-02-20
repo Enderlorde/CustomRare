@@ -1,4 +1,4 @@
-const React = require('react');
+import React from 'react';
 
 const History = () => {
     return (
@@ -8,4 +8,4 @@ const History = () => {
     );
 }
 
-module.exports = History;
+export default History;

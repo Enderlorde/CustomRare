@@ -1,11 +1,18 @@
-const React = require('react');
+/* const React = require('react');
 const { Link } = require('react-router-dom');
 const { Canvas } = require('@react-three/fiber');
 const { Html } = require('@react-three/drei');
 const Model = require('../gameboy.jsx');
 require ('./promo.sass');
 require ('./promo-mobile.sass');
-const Spinner = require('../spinner/spinner.jsx');
+const Spinner = require('../spinner/spinner.jsx'); */
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Canvas } from '@react-three/fiber';
+import { Html } from '@react-three/drei';
+import Model from '../gameboy';
+import Spinner from '../spinner/spinner';
+import './promo.sass';
 
 function Promo(props) {
 
@@ -33,4 +40,4 @@ function Promo(props) {
     )
 }
 
-module.exports = Promo;
+export default Promo;

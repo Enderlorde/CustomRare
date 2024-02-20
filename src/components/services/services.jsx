@@ -1,10 +1,15 @@
-const React = require('react');
+/* const React = require('react');
 const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
 const { faArrowRightLong } = require('@fortawesome/free-solid-svg-icons')
 
 require('./services.sass');
 require('./services-mobile.sass');
-const Slider = require('../slider/slider.jsx');
+const Slider = require('../slider/slider.jsx'); */
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import Slider from '../slider/slider';
+import './services.sass';
 
 const Services = () => {
     return(
@@ -21,4 +26,4 @@ const Services = () => {
     )
 }
 
-module.exports = Services;
+export default Services;

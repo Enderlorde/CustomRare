@@ -1,6 +1,9 @@
-const React = require('react');
+/* const React = require('react');
 require('./shipping.sass')
-require('./shipping-mobile.sass')
+require('./shipping-mobile.sass') */
+
+import React from 'react';
+import './shipping.sass';
 
 const Shipping = () => {
     return (
@@ -28,4 +31,4 @@ const Shipping = () => {
     );
 }
 
-module.exports = Shipping;
+export default Shipping;

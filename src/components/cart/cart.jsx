@@ -1,6 +1,9 @@
-const React = require('react');
-require('./cart.sass');
-const Shipping = require('../shipping/shipping.jsx');
+
+//require('./cart.sass');
+
+import React from 'react';
+import Shipping from '../shipping/shipping.jsx';
+import './cart.sass';
 
 const Cart = () => {
     const [cart, setCart] = React.useState([]);
@@ -98,4 +101,4 @@ const Cart = () => {
     );
 }
 
-module.exports = Cart;
+export default Cart;

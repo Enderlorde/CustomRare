@@ -1,4 +1,4 @@
-const React = require ('react');
+/* const React = require ('react');
 const { useParams, useSearchParams } = require('react-router-dom');
 const { Canvas } = require('@react-three/fiber');
 const { OrbitControls, Html, Float } = require('@react-three/drei');
@@ -7,8 +7,16 @@ const Model = require('../gameboy.jsx');
 const Spinner = require('../spinner/spinner.jsx');
 
 require('./constructor.sass');
-require('./constructor-mobile.sass');
+require('./constructor-mobile.sass'); */
 
+import React from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Html, Float } from '@react-three/drei';
+import { v4 } from 'uuid';
+import Model from "../gameboy";
+import Spinner from '../spinner/spinner';
+import './constructor.sass';
 
 function Constructor() {
     const [themeState, setThemeState] = React.useState();
@@ -186,4 +194,4 @@ function Constructor() {
     );
 }
 
-module.exports = Constructor;
+export default Constructor;

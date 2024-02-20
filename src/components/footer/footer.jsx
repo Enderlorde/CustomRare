@@ -1,4 +1,4 @@
-const React = require('react');
+/* const React = require('react');
 const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
 const { faInstagram, faFacebook, faYoutube, faPinterest } = require('@fortawesome/free-brands-svg-icons');
 
@@ -7,7 +7,12 @@ require('./footer.sass');
 require('./footer-mobile.sass');
 
 const logoImage = require('../../static/logo.svg');
-
+ */
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faFacebook, faYoutube, faPinterest } from '@fortawesome/free-brands-svg-icons';
+import logoImage from '../../static/logo.svg';
+import './footer.sass';
 
 const Footer = () => {
     return (
@@ -43,4 +48,4 @@ const Footer = () => {
     );
 }
 
-module.exports = Footer;
+export default Footer;

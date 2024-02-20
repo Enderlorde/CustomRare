@@ -1,5 +1,8 @@
-const React = require('react');
-require('./features.sass');
+/* const React = require('react');
+require('./features.sass'); */
+import React from 'react';
+import './features.sass';
+
 
 const Features = () => {
     return(
@@ -30,4 +33,4 @@ const Features = () => {
     )
 }
 
-module.exports = Features;
+export default Features;

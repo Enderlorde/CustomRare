@@ -1,4 +1,4 @@
-const React = require('react');
+/* const React = require('react');
 const { NavLink, useNavigate } = require('react-router-dom');
 
 require("./navigation.sass");
@@ -6,7 +6,14 @@ require("./navigation-mobile.sass");
 
 const logo = require('../../static/logo.svg');
 const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
-const { faBars } = require('@fortawesome/free-solid-svg-icons');
+const { faBars } = require('@fortawesome/free-solid-svg-icons'); */
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Logo from '../../static/logo.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import './navigation.sass';
+import './navigation-mobile.sass';
 
 const Navigation = () => {
     const menuElement = React.useRef();
@@ -28,7 +35,7 @@ const Navigation = () => {
     return (
             <nav className="navigation">
                 <div className="navigation__container">
-                    <img src={logo} className='navigation__logo' alt="" />
+                    <img src={Logo} className='navigation__logo' alt="" />
                     
                     <ul className='navigation__menu menu' ref={menuElement}>
                         <li>
@@ -54,4 +61,4 @@ const Navigation = () => {
     );
 }
 
-module.exports = Navigation;
+export default Navigation;
